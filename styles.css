@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 4em;
+  margin: 36px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 100vh;
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
