@@ -1,13 +1,11 @@
-export function normalize (keywords) {
-  return keywords.trim().toLowerCase();
-}
+const normalize = keywords => keywords.trim().toLowerCase();
 
-export function match (keywords, attribute) {
-  return attribute.toLowerCase().includes(keywords);
-}
+const match = (keywords, attribute) => attribute.toLowerCase().includes(keywords);
 
-export function sortCriteria (key, order = 'asc') {
-  return function (a, b) {
+const descendingOrder = comparison => comparison * -1;
+
+const sortCriteria = (key, order = 'asc') => {
+  return (a, b) => {
     let comparison = 0;
 
     if (a[key] < b[key]) {
@@ -18,6 +16,12 @@ export function sortCriteria (key, order = 'asc') {
       comparison = 1;
     }
 
-    return order === 'desc' ? comparison * -1 : comparison;
+    if (order === 'desc') {
+      return descendingOrder(comparison);
+    }
+
+    return comparison;
   };
-}
+};
+
+export { normalize, match, sortCriteria };
