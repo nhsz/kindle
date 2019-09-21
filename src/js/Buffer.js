@@ -14,7 +14,7 @@ export default class Buffer {
   display () {
     const elements = this._buffer.filter(element => element !== this._init);
 
-    if (!elements || elements.length !== this._size) {
+    if (!elements) {
       console.log('Empty...');
     } else {
       console.log(...elements);
